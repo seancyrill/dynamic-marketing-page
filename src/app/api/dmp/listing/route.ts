@@ -8,7 +8,7 @@ import { ConvertResponseType } from "../../../../types/converter-type"
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { listing_orig_id, magicLink } = body
+    const { listing_orig_id } = body
 
     if (!listing_orig_id || typeof listing_orig_id !== "string") {
       return NextResponse.json({ error: "Invalid or missing listing_orig_id" }, { status: 400 })

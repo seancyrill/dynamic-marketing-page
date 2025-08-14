@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from "react"
 import { DmpDataType } from "../api/dmp/[dmp_id]/route"
-import { scrollToBottom } from "../utils/scroll-to-bottom"
 import { useVideoeContext } from "../context"
 
 type Props = {
@@ -35,7 +34,7 @@ export default function Hero({ video_clip_joint, dmpType }: Props) {
     currentVideo.play()
 
     const handleEnded = () => {
-      const nextIndex = (currentIndex + 1) % clips.length
+      const nextIndex = (currentIndex + 1) % (clips?.length || 0)
       const nextVideo = videoRefs.current[nextIndex]
 
       if (!nextVideo) return

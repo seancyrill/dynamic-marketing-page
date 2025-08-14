@@ -1,22 +1,20 @@
 import { NextRequest, NextResponse } from "next/server"
 import { prisma } from "../../../../lib/db"
-import { InviteLinkParams, generateInviteLink } from "../../../../lib/generate-invite-link"
 
 type VideoRouteParams = {
   video_id: string
   listing_orig_id: string
-  inviteParams: InviteLinkParams
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const { listing_orig_id, video_id, inviteParams }: VideoRouteParams = await request.json()
+    const { listing_orig_id, video_id }: VideoRouteParams = await request.json()
 
-    if (!video_id || !listing_orig_id || !inviteParams) {
+    if (!video_id || !listing_orig_id) {
       return NextResponse.json({ error: "Missing params" }, { status: 400 })
     }
 
-    const dmp_magic_link: any = 1 //generateInviteLink()
+    const dmp_magic_link: string = "1" //generateInviteLink()
 
     const created = await prisma.dynamic_Marketing_Pages.create({
       data: {

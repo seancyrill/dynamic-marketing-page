@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
-import Filmgrain from "./components/Filmgrain"
 import { ContextProvider } from "./context"
 
 const geistSans = Geist({
@@ -30,8 +29,6 @@ export default function RootLayout({
         <main
           className={`${geistSans.variable} ${geistMono.variable} relative mx-auto flex min-h-screen flex-col antialiased`}
         >
-          {/* <Filmgrain /> */}
-
           <ContextProvider>{children}</ContextProvider>
         </main>
       </body>

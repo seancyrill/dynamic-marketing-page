@@ -1,3 +1,4 @@
+import Image from "next/image"
 import React from "react"
 
 type Props = {
@@ -33,7 +34,7 @@ export default function About({ img, video }: Props) {
         <div className="flex flex-col sm:p-[10%] sm:pt-0">
           <p>original image:</p>
           <div className="aspect-video h-fit min-h-0 object-contain">
-            <img src={img} alt="imgShowCase" className="h-full object-contain" />
+            <Image src={img} alt="imgShowCase" className="h-full object-contain" />
           </div>
         </div>
 
